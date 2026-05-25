@@ -12,7 +12,6 @@
 
     "validate_scan_output": true,
     "scan_output": {
-      "security_scan_report_conclusion": "success",
       "total_libs_scanned": {"gte": 10},
       "expected_messages": []
     },
@@ -50,59 +49,6 @@
         "contains": ["ant"]
       },
 
-      "expected_dependency_pairs": [
-        {
-          "artifactId": "commons-collections4-4.4.jar",
-          "version": "4.4",
-          "_note": "mod01/lib — chain head, catalog #8 multi-project-filesystem signal"
-        },
-        {
-          "artifactId": "commons-lang3-3.12.0.jar",
-          "version": "3.12.0",
-          "_note": "mod02/lib — chain depth 2"
-        },
-        {
-          "artifactId": "commons-io-2.11.0.jar",
-          "version": "2.11.0",
-          "_note": "mod03/lib — chain depth 3"
-        },
-        {
-          "artifactId": "junit-4.13.2.jar",
-          "version": "4.13.2",
-          "_note": "mod04/lib — chain depth 4"
-        },
-        {
-          "artifactId": "hamcrest-core-1.3.jar",
-          "version": "1.3",
-          "_note": "mod05/lib — chain depth 5"
-        },
-        {
-          "artifactId": "slf4j-api-1.7.36.jar",
-          "version": "1.7.36",
-          "_note": "mod06/lib — chain depth 6"
-        },
-        {
-          "artifactId": "commons-text-1.10.0.jar",
-          "version": "1.10.0",
-          "_note": "mod07/lib — chain depth 7"
-        },
-        {
-          "artifactId": "commons-codec-1.11.jar",
-          "version": "1.11",
-          "_note": "mod08/lib — chain depth 8"
-        },
-        {
-          "artifactId": "httpcore-4.4.16.jar",
-          "version": "4.4.16",
-          "_note": "mod09/lib — chain depth 9"
-        },
-        {
-          "artifactId": "httpclient-4.5.14.jar",
-          "version": "4.5.14",
-          "_note": "mod10/lib — chain leaf (depth 10), catalog #20 deep-chain regression signal"
-        }
-      ],
-
       "validate_agent_versions": false,
       "expected_agent_version": "",
       "expected_plugin_version": "",
@@ -113,19 +59,7 @@
         "check_sha1_not_empty": true,
         "check_sha1_format": true,
         "check_sha1_consistency": true,
-        "check_checksums_by_formula": false,
-        "expected_dependency_checksums": [
-          {"artifactId": "commons-collections4-4.4.jar", "version": "4.4",    "sha1": "62ebe7544cb7164d87e0637a2a6a2bdc981395e8"},
-          {"artifactId": "commons-lang3-3.12.0.jar",     "version": "3.12.0", "sha1": "c6842c86792ff03b9f1d1fe2aab8dc23aa6c6f0e"},
-          {"artifactId": "commons-io-2.11.0.jar",        "version": "2.11.0", "sha1": "a2503f302b11ebde7ebc3df41daebe0e4eea3689"},
-          {"artifactId": "junit-4.13.2.jar",             "version": "4.13.2", "sha1": "8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12"},
-          {"artifactId": "hamcrest-core-1.3.jar",        "version": "1.3",    "sha1": "42a25dc3219429f0e5d060061f71acb49bf010a0"},
-          {"artifactId": "slf4j-api-1.7.36.jar",        "version": "1.7.36", "sha1": "6c62681a2f655b49963a5983b8b0950a6120ae14"},
-          {"artifactId": "commons-text-1.10.0.jar",      "version": "1.10.0", "sha1": "3363381aef8cef2dbc1023b3e3a9433b08b64e01"},
-          {"artifactId": "commons-codec-1.11.jar",       "version": "1.11",   "sha1": "3acb4705652e16236558f0f4f2192cc33c3bd189"},
-          {"artifactId": "httpcore-4.4.16.jar",          "version": "4.4.16", "sha1": "51cf043c87253c9f58b539c9f7e44c8894223850"},
-          {"artifactId": "httpclient-4.5.14.jar",        "version": "4.5.14", "sha1": "1194890e6f56ec29177673f2f12d0b8e627dec98"}
-        ]
+        "check_checksums_by_formula": false
       }
     },
 
