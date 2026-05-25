@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod06/build.xml — sixth link in the 10-module deep chain.
+  Hosts: slf4j-api-1.7.36.jar in lib/.
+-->
+<project name="mod06" default="resolve" basedir="."
+         xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <property name="ivy.settings.file" value="${basedir}/../ivysettings.xml"/>
+
+    <taskdef resource="org/apache/ivy/ant/antlib.xml"
+             uri="antlib:org.apache.ivy.ant"
+             classpath="${ivy.jar.path}"/>
+
+    <target name="resolve" description="Resolve mod06 dependencies">
+        <ivy:settings file="${ivy.settings.file}"/>
+        <ivy:resolve file="${basedir}/ivy.xml"
+                     conf="compile"
+                     failonerror="false"
+                     log="download-only"/>
+        <ivy:cachepath pathid="compile.classpath"
+                       conf="compile"
+                       failonerror="false"/>
+        <ivy:retrieve pattern="${basedir}/lib/[artifact]-[revision].[ext]"
+                      conf="compile"
+                      overwriteMode="different"/>
+    </target>
+
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod07/ivy.xml — seventh link in the 10-module chain.
+  Hosts: commons-text-1.10.0.jar in lib/.
+  Chain dep: mend-detection-qa#mod08;1.0.0 via filesystem resolver.
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod07"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod08"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep: commons-text -->
+        <dependency org="org.apache.commons"
+                    name="commons-text"
+                    rev="1.10.0"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

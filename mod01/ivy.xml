@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod01/ivy.xml — first link in the 10-module chain.
+  Hosts: commons-collections4-4.4.jar in lib/ (Mode-3 fingerprint target).
+  Chain dep: mend-detection-qa#mod02;1.0.0 via filesystem resolver.
+  External dep: none at this level (chain propagates to mod10's external dep).
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod01"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod02"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep to give this module a direct Maven Central artifact -->
+        <dependency org="org.apache.commons"
+                    name="commons-collections4"
+                    rev="4.4"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

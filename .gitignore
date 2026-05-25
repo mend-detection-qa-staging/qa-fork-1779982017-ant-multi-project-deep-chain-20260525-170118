@@ -1,0 +1,12 @@
+# Build outputs — never ignore lib/ because Mode-3 needs JARs committed
+build/
+target/
+.ivy/
+ivy-cache/
+*.class
+
+# IDE
+.idea/
+*.iml
+.eclipse/
+.settings/

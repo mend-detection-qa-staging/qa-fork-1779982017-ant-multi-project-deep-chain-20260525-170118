@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Umbrella build.xml — invokes all 10 sub-project resolve targets via <subant>.
+  Exercises catalog IDs #8 (multi-project-filesystem) and #20 (complex-deep-chain).
+  No compile or test targets: this probe is for dependency resolution only.
+
+  Mode-3 reality: bolt-4 SCM scanner fingerprints JARs in each mod*/lib/.
+  Each sub-project hosts one unique JAR, making 10 distinct Mode-3 entries.
+-->
+<project name="ant-multi-project-deep-chain" default="resolve-all" basedir=".">
+
+    <target name="resolve-all"
+            description="Resolve dependencies in all 10 sub-projects">
+        <subant target="resolve" failonerror="false">
+            <filelist dir="${basedir}">
+                <file name="mod01/build.xml"/>
+                <file name="mod02/build.xml"/>
+                <file name="mod03/build.xml"/>
+                <file name="mod04/build.xml"/>
+                <file name="mod05/build.xml"/>
+                <file name="mod06/build.xml"/>
+                <file name="mod07/build.xml"/>
+                <file name="mod08/build.xml"/>
+                <file name="mod09/build.xml"/>
+                <file name="mod10/build.xml"/>
+            </filelist>
+        </subant>
+    </target>
+
+</project>

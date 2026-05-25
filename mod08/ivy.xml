@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod08/ivy.xml — eighth link in the 10-module chain.
+  Hosts: commons-codec-1.11.jar in lib/.
+  Chain dep: mend-detection-qa#mod09;1.0.0 via filesystem resolver.
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod08"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod09"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep: commons-codec -->
+        <dependency org="commons-codec"
+                    name="commons-codec"
+                    rev="1.11"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

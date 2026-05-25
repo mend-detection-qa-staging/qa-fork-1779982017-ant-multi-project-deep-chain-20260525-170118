@@ -1,0 +1,179 @@
+{
+  "_schema_version": "1.0",
+  "_probe_id": "ant-multi-project-deep-chain-20260525-170118",
+  "_pm": "ant",
+  "_pm_version_tested": "ivy-2.5.x",
+  "_scanner_mode": "mode-3-default-path-scan",
+  "_patterns": [
+    "multi-project-filesystem",
+    "complex-deep-chain"
+  ],
+  "_catalog_ids": ["#8", "#20"],
+  "_generated": "2026-05-25",
+
+  "_mode_3_notes": [
+    "The bolt-4 SCM scanner does NOT invoke Mode-1 Ivy resolution.",
+    "It falls through to Mode-3 default path scan: SHA1 fingerprints of binary files (jar/war/dll/etc).",
+    "Each mod*/lib/*.jar appears as a flat direct dependency with no transitive structure.",
+    "10 modules × 1 JAR each = 10 distinct Mode-3 entries total.",
+    "Multi-project filesystem resolver chain (mod01->mod02->...->mod10) and deep-chain traversal depth are exercised at lib-population time.",
+    "Mode-1 testing (actual Ivy chain resolution) would require pipeline-mode `mend ua -c whitesource.config`, not SCM integration."
+  ],
+
+  "_schema_choice": "flat packages map (schema 1.0) — chosen because Mode-3 flattens all JARs regardless of sub-project hierarchy; each JAR appears once as a direct dependency with source_detail.path encoding the sub-project origin. Schema 1.1 subtrees[] would imply Ivy-resolved structure that Mode-3 does not produce.",
+
+  "schema_version": "1.0",
+  "pm": "ant",
+  "source_file": "build.xml",
+  "root": {
+    "name": "ant-multi-project-deep-chain-20260525",
+    "version": "0.1.0",
+    "dependencies": [
+      "commons-collections4-4.4.jar",
+      "commons-lang3-3.12.0.jar",
+      "commons-io-2.11.0.jar",
+      "junit-4.13.2.jar",
+      "hamcrest-core-1.3.jar",
+      "slf4j-api-1.7.36.jar",
+      "commons-text-1.10.0.jar",
+      "commons-codec-1.11.jar",
+      "httpcore-4.4.16.jar",
+      "httpclient-4.5.14.jar"
+    ]
+  },
+  "packages": {
+    "commons-collections4-4.4.jar": {
+      "version": "4.4",
+      "source": "local",
+      "source_detail": {
+        "path": "mod01/lib/commons-collections4-4.4.jar",
+        "subproject": "mod01",
+        "chain_position": 1,
+        "chain_note": "top of 10-module chain; mod01 -> mod02 -> ... -> mod10"
+      },
+      "group": "main",
+      "hashes": ["62ebe7544cb7164d87e0637a2a6a2bdc981395e8"],
+      "dependencies": []
+    },
+    "commons-lang3-3.12.0.jar": {
+      "version": "3.12.0",
+      "source": "local",
+      "source_detail": {
+        "path": "mod02/lib/commons-lang3-3.12.0.jar",
+        "subproject": "mod02",
+        "chain_position": 2
+      },
+      "group": "main",
+      "hashes": ["c6842c86792ff03b9f1d1fe2aab8dc23aa6c6f0e"],
+      "dependencies": []
+    },
+    "commons-io-2.11.0.jar": {
+      "version": "2.11.0",
+      "source": "local",
+      "source_detail": {
+        "path": "mod03/lib/commons-io-2.11.0.jar",
+        "subproject": "mod03",
+        "chain_position": 3
+      },
+      "group": "main",
+      "hashes": ["a2503f302b11ebde7ebc3df41daebe0e4eea3689"],
+      "dependencies": []
+    },
+    "junit-4.13.2.jar": {
+      "version": "4.13.2",
+      "source": "local",
+      "source_detail": {
+        "path": "mod04/lib/junit-4.13.2.jar",
+        "subproject": "mod04",
+        "chain_position": 4
+      },
+      "group": "main",
+      "hashes": ["8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12"],
+      "dependencies": []
+    },
+    "hamcrest-core-1.3.jar": {
+      "version": "1.3",
+      "source": "local",
+      "source_detail": {
+        "path": "mod05/lib/hamcrest-core-1.3.jar",
+        "subproject": "mod05",
+        "chain_position": 5
+      },
+      "group": "main",
+      "hashes": ["42a25dc3219429f0e5d060061f71acb49bf010a0"],
+      "dependencies": []
+    },
+    "slf4j-api-1.7.36.jar": {
+      "version": "1.7.36",
+      "source": "local",
+      "source_detail": {
+        "path": "mod06/lib/slf4j-api-1.7.36.jar",
+        "subproject": "mod06",
+        "chain_position": 6
+      },
+      "group": "main",
+      "hashes": ["6c62681a2f655b49963a5983b8b0950a6120ae14"],
+      "dependencies": []
+    },
+    "commons-text-1.10.0.jar": {
+      "version": "1.10.0",
+      "source": "local",
+      "source_detail": {
+        "path": "mod07/lib/commons-text-1.10.0.jar",
+        "subproject": "mod07",
+        "chain_position": 7
+      },
+      "group": "main",
+      "hashes": ["3363381aef8cef2dbc1023b3e3a9433b08b64e01"],
+      "dependencies": []
+    },
+    "commons-codec-1.11.jar": {
+      "version": "1.11",
+      "source": "local",
+      "source_detail": {
+        "path": "mod08/lib/commons-codec-1.11.jar",
+        "subproject": "mod08",
+        "chain_position": 8
+      },
+      "group": "main",
+      "hashes": ["3acb4705652e16236558f0f4f2192cc33c3bd189"],
+      "dependencies": []
+    },
+    "httpcore-4.4.16.jar": {
+      "version": "4.4.16",
+      "source": "local",
+      "source_detail": {
+        "path": "mod09/lib/httpcore-4.4.16.jar",
+        "subproject": "mod09",
+        "chain_position": 9
+      },
+      "group": "main",
+      "hashes": ["51cf043c87253c9f58b539c9f7e44c8894223850"],
+      "dependencies": []
+    },
+    "httpclient-4.5.14.jar": {
+      "version": "4.5.14",
+      "source": "local",
+      "source_detail": {
+        "path": "mod10/lib/httpclient-4.5.14.jar",
+        "subproject": "mod10",
+        "chain_position": 10,
+        "chain_note": "terminal leaf; declares external Maven Central dep (httpclient) in ivy.xml"
+      },
+      "group": "main",
+      "hashes": ["1194890e6f56ec29177673f2f12d0b8e627dec98"],
+      "dependencies": []
+    }
+  },
+  "project_metadata": {
+    "groups": ["main"],
+    "total_modules": 10,
+    "chain_depth": 10
+  },
+  "warnings": [
+    "Probe uses Mode-3 (binary path scan) not Mode-1 (Ivy resolution). The bolt-4 SCM scanner fingerprints committed JARs, not Ivy-resolved artifacts.",
+    "Multi-project filesystem resolver chain (mod01->mod02->...->mod10) is encoded in ivy.xml files but is not observable in Mode-3 output — chain depth is validated by presence of all 10 distinct JAR fingerprints.",
+    "Deep-chain traversal depth (>=10) is validated by the gte:10 count assertion in autotest_config.json.",
+    "For Mode-1 (actual Ivy chain resolution including transitive propagation), use pipeline-mode `mend ua -c whitesource.config` against this repo."
+  ]
+}

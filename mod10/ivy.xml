@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod10/ivy.xml — terminal (tenth) link in the 10-module chain.
+  Hosts: httpclient-4.5.14.jar in lib/.
+  No further filesystem dep — this is the chain leaf.
+  External dep: httpclient from Maven Central (the one real external dep
+  that propagates transitively when Mode-1 resolution is active).
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod10"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Terminal external dep: httpclient from Maven Central -->
+        <dependency org="org.apache.httpcomponents"
+                    name="httpclient"
+                    rev="4.5.14"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

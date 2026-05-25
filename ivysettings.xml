@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Shared ivysettings.xml for the 10-module deep-chain probe.
+  Used by every mod*/build.xml (referenced as ${basedir}/../ivysettings.xml).
+
+  Resolver chain:
+  1. filesystem resolver — resolves inter-module deps from local lib/ dirs.
+     Each module's lib/ acts as a mini-local-repository.
+  2. ibiblio resolver — resolves external Maven Central deps (mod10's httpclient,
+     plus any transitive deps not pre-committed).
+
+  Chain resolver: filesystem first, then ibiblio on miss.
+-->
+<ivysettings>
+    <settings defaultResolver="chain"/>
+
+    <resolvers>
+        <!-- Filesystem resolver: looks for JARs in the calling module's lib/ directory -->
+        <filesystem name="local-lib" checkmodified="true">
+            <artifact pattern="${ivy.settings.dir}/lib/[artifact]-[revision].[ext]"/>
+        </filesystem>
+
+        <!-- Maven Central fallback for external deps -->
+        <ibiblio name="central" m2compatible="true"/>
+
+        <!-- Chain: try local-lib first, then central -->
+        <chain name="chain" returnFirst="true">
+            <resolver ref="local-lib"/>
+            <resolver ref="central"/>
+        </chain>
+    </resolvers>
+</ivysettings>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod09/ivy.xml — ninth link in the 10-module chain.
+  Hosts: httpcore-4.4.16.jar in lib/.
+  Chain dep: mend-detection-qa#mod10;1.0.0 via filesystem resolver.
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod09"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next (final) module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod10"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep: httpcore -->
+        <dependency org="org.apache.httpcomponents"
+                    name="httpcore"
+                    rev="4.4.16"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

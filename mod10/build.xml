@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod10/build.xml — terminal (tenth) link in the 10-module deep chain.
+  Hosts: httpclient-4.5.14.jar in lib/.
+  This module has NO filesystem dep on a further module; it is the chain leaf.
+  It declares the single external Maven Central dep (httpclient) that
+  propagates back up the chain when Mode-1 resolution is active.
+-->
+<project name="mod10" default="resolve" basedir="."
+         xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <property name="ivy.settings.file" value="${basedir}/../ivysettings.xml"/>
+
+    <taskdef resource="org/apache/ivy/ant/antlib.xml"
+             uri="antlib:org.apache.ivy.ant"
+             classpath="${ivy.jar.path}"/>
+
+    <target name="resolve" description="Resolve mod10 dependencies">
+        <ivy:settings file="${ivy.settings.file}"/>
+        <ivy:resolve file="${basedir}/ivy.xml"
+                     conf="compile"
+                     failonerror="false"
+                     log="download-only"/>
+        <ivy:cachepath pathid="compile.classpath"
+                       conf="compile"
+                       failonerror="false"/>
+        <ivy:retrieve pattern="${basedir}/lib/[artifact]-[revision].[ext]"
+                      conf="compile"
+                      overwriteMode="different"/>
+    </target>
+
+</project>

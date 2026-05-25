@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod06/ivy.xml — sixth link in the 10-module chain.
+  Hosts: slf4j-api-1.7.36.jar in lib/.
+  Chain dep: mend-detection-qa#mod07;1.0.0 via filesystem resolver.
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod06"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod07"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep: slf4j-api -->
+        <dependency org="org.slf4j"
+                    name="slf4j-api"
+                    rev="1.7.36"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>

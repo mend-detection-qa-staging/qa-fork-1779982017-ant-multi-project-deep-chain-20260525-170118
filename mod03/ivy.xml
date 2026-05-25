@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mod03/ivy.xml — third link in the 10-module chain.
+  Hosts: commons-io-2.11.0.jar in lib/.
+  Chain dep: mend-detection-qa#mod04;1.0.0 via filesystem resolver.
+-->
+<ivy-module version="2.0">
+    <info organisation="mend-detection-qa"
+          module="mod03"
+          revision="1.0.0"
+          status="integration"/>
+
+    <configurations>
+        <conf name="compile" description="Compile-time dependencies"/>
+    </configurations>
+
+    <dependencies>
+        <!-- Filesystem dep on next module in chain -->
+        <dependency org="mend-detection-qa"
+                    name="mod04"
+                    rev="1.0.0"
+                    conf="compile->compile"/>
+
+        <!-- External dep: commons-io -->
+        <dependency org="commons-io"
+                    name="commons-io"
+                    rev="2.11.0"
+                    conf="compile->default"/>
+    </dependencies>
+</ivy-module>
